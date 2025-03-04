@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="aixo" baseClass="xPDO\Om\xPDOObject" platform="mysql" defaultEngine="InnoDB" version="1.0">
+  <object class="modAixoTokenUsage" table="aixo_token_usage" extends="xPDO\Om\xPDOSimpleObject">
+    <field key="provider"  dbtype="varchar" precision="100" phptype="string"  null="false" default=""/>
+    <field key="model"     dbtype="varchar" precision="100" phptype="string"  null="false" default=""/>
+    <field key="tokens"    dbtype="int"     precision="10"  phptype="integer" null="false" default="0"/>
+    <field key="timestamp" dbtype="datetime"               phptype="datetime" null="false"/>
+    <field key="metadata"  dbtype="text"                   phptype="string"  null="true"/>
+    <index alias="provider"  name="provider_idx"><column key="provider" /></index>
+    <index alias="model"     name="model_idx"><column key="model" /></index>
+    <index alias="timestamp" name="time_idx"><column key="timestamp" /></index>
+  </object>
+
+  <object class="modAixoTokenUsageSum" table="aixo_token_usage_sum" extends="xPDO\Om\xPDOSimpleObject">
+    <field key="provider" dbtype="varchar" precision="100" phptype="string" null="false" default=""/>
+    <field key="model" dbtype="varchar" precision="100" phptype="string" null="false" default=""/>
+    <field key="total_tokens" dbtype="int" precision="10" phptype="integer" null="false" default="0"/>
+    <field key="updated_at" dbtype="datetime" phptype="datetime" null="false"/>
+    <index alias="provider" name="provider_idx"><column key="provider" /></index>
+    <index alias="model" name="model_idx"><column key="model" /></index>
+  </object>
+</model>
